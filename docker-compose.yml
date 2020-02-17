@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  
+  democlient:
+    build:
+      context: ./client
+      dockerfile: ./client/Dockerfile.dev
+    ports:
+      - "4201:4200"
+    volumes:
+      - /app/node_modules
+      - .:/app
+
+  demoprod:
+    build: ./client
+    ports:
+      - "8080:80"
